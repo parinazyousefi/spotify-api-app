@@ -1,0 +1,43 @@
+@use '../../styles/partials/colors.scss' as *;
+@use '../../styles/partials/fonts.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
+.header{
+    padding: 1rem;
+    border-bottom: 1px solid $Light-Gray;
+    @include tablet{
+        padding: 2rem;
+    }
+    @include desktop{
+        padding: 2rem auto;
+    }
+    &__container{
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .image-wrapper{
+        width: 40%;
+    }
+    .playlistCover{
+        width: 100%; 
+        max-width: 100%; 
+        height: auto; 
+        max-height: 150px; 
+        border-radius: 0.25rem;
+    }
+    .playlist-info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+    &__title{
+        color: white;
+    }
+    
+}
+
