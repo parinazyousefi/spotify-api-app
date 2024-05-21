@@ -1,0 +1,43 @@
+@use "../../styles/partials/colors.scss" as *;
+@use "../../styles/partials/fonts.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
+@use "../../styles/partials/global.scss" as *;
+@keyframes rainbow {
+    0% { color: red; }
+    14.3% { color: orange; }
+    28.6% { color: yellow; }
+    42.9% { color: green; }
+    57.2% { color: blue; }
+    71.5% { color: indigo; }
+    85.8% { color: violet; }
+    100% { color: red; }
+  }
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.25);
+    }
+  }
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__title {
+    margin-top: 3rem;
+    margin-bottom: 10rem;
+    animation: rainbow 10s infinite linear; 
+  }
+  &__btn {
+    background-color: $Green;
+    color: white;
+    font-weight: 600;
+    width: 9rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    height: 3rem;
+    animation: pulse 2s infinite alternate;
+  }
+}
