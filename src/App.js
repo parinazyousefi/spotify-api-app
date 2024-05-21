@@ -1,8 +1,7 @@
 import './App.scss';
-import Header from './components/Header/Header';
-import Playlist from './components/Playlist/Playlist';
-import Profile from './pages/Profile/Profile';
 import Login from './pages/Login/Login';
+import Mood from './pages/Mood/Mood';
+import Navbar from './pages/Navbar/Navbar';
 import { BrowserRouter,Route,Routes } from 'react-router-dom';
 
 function App() {
@@ -11,7 +10,8 @@ function App() {
       <BrowserRouter>
       <Routes>
       <Route path='/' element={<Login/>}/>
-        {/* <Route path='/' element={<Profile/>}/> */}
+      <Route path='/dashboard' element={<Mood/>}/>
+      <Route path='/navbar' element={<Navbar/>}></Route>
       </Routes>
       </BrowserRouter>
 

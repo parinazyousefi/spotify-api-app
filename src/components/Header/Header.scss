@@ -1,43 +1,70 @@
-@use '../../styles/partials/colors.scss' as *;
-@use '../../styles/partials/fonts.scss' as *;
-@use '../../styles/partials/mixins.scss' as *;
-@use '../../styles/partials/global.scss' as *;
+@use "../../styles/partials/colors.scss" as *;
+@use "../../styles/partials/fonts.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
+@use "../../styles/partials/global.scss" as *;
 
-.header{
+.header {
+  &__title {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo {
+    width: 10vw;
+    height: 10vh;
+  }
+  &--mobile {
+    animation: sectionAnimation 1s ease-in-out forwards;
     padding: 1rem;
-    border-bottom: 1px solid $Light-Gray;
-    @include tablet{
-        padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    @include desktop {
+      display: none;
     }
-    @include desktop{
-        padding: 2rem auto;
+    .icon {
+      color: white;
     }
-    &__container{
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
-        align-items: center;
+  }
+  &--desktop {
+    display: none;
+    @include desktop {
+      animation: sectionAnimation 1s ease-in-out forwards;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      .header {
+        &__list {
+            margin-top: 3rem;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 3rem;
+        }
+        &__item {
+          color: white;
+          list-style-type: none;
+          display: flex;
+          flex-direction: column;
+          gap: 3rem;
+          justify-content: center;
+          align-items: center;
+          &:hover {
+            cursor: pointer;
+            color: $Green;
+      transform: scale(1.25);
+          }
+        }
+      }
     }
-    .image-wrapper{
-        width: 40%;
-    }
-    .playlistCover{
-        width: 100%; 
-        max-width: 100%; 
-        height: auto; 
-        max-height: 150px; 
-        border-radius: 0.25rem;
-    }
-    .playlist-info{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-    }
-    &__title{
-        color: white;
-    }
-    
+  }
 }
-
+.nav-link {
+  text-decoration: none;
+}
