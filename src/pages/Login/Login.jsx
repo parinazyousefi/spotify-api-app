@@ -5,7 +5,6 @@ console.log(backendUrl);
 const Login=()=>{
     const handleLogin=()=>{
         window.location.href = `${backendUrl}/auth/spotify`;
-        console.log('check authenticated');
     }
     return(
         <div className='login'>
