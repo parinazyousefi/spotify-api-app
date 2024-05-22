@@ -25,7 +25,7 @@ const Header=()=>{
           <img src={moodLogo} alt='mood logo'></img>
           <li className="header__item">Mood</li>
           </Link>
-          <Link to='/artist' className='nav-link'> 
+          <Link to='/artists' className='nav-link'> 
           <img src={artistLogo} alt='artist logo'></img>
           <li className="header__item">Top Artisits</li>
           </Link>
