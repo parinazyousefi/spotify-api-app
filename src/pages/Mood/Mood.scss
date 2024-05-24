@@ -23,33 +23,23 @@
         padding: 1rem;
         @include tablet{
             padding: 2rem;
+            margin-left: 10rem;
         }
     }
     &__typed {
         overflow: hidden;
-        white-space: nowrap;
-        width: 0;
-        animation: typing;
-        animation-duration: 5s;
-        animation-timing-function: steps(100, end);
-        animation-fill-mode: forwards;
+        // white-space: nowrap;
+        // width: 0;
+        // animation: typing;
+        // animation-duration: 5s;
+        // animation-timing-function: steps(100, end);
+        // animation-fill-mode: forwards;
         color: white;
         font-weight: 700;
-        @include desktop{
-        font-size: 5rem;
-
-        }
       }
 
       &__type{
         display: flex;
         justify-content: center;
-        animation: typing;
-        animation-duration: 10s;
-        animation-timing-function: steps(100, end);
-        animation-fill-mode: forwards;
-        @include desktop{
-            font-size: 5rem;
-            }
       }
 }

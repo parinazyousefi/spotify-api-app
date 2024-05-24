@@ -4,9 +4,12 @@
 @use "../../styles/partials/global.scss" as *;
 
 .song{
+    padding: 1rem;
     @include tablet{
         display: flex;
         flex-direction: row;
         align-items: baseline;
+        margin-left: 10rem;
+        padding: 2rem;
     }
 }

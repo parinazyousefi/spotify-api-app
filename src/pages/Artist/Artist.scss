@@ -3,10 +3,34 @@
 @use "../../styles/partials/mixins.scss" as *;
 @use "../../styles/partials/global.scss" as *;
 
-.artist{
-    @include tablet{
-        display: flex;
-        flex-direction: row;
-        align-items: baseline;
-    }
+.artists {
+  padding: 1rem;
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-left: 10rem;
+    padding: 2rem;
+  }
+  &__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  &__name {
+    color: white;
+    margin-top: 1rem;
+  }
+  &__img {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 9.375rem;
+    height: 9.375rem;
+  }
+  .artist {
+    cursor: pointer;
+    text-align: center;
+  }
 }
