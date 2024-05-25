@@ -14,6 +14,7 @@ const Artist = () => {
           withCredentials: true,
         });
         setArtists(response.data);
+        console.log(response.data);
       } catch (error) {
         console.error("Error fetching top artists:", error);
       }
@@ -24,25 +25,29 @@ const Artist = () => {
   return (
     <div className="artists">
       <Header />
-      <div>
-      <div className="artists__title">
-        <h1 className="title">Top Artists</h1>
+      <div className="holder">
+        <div className="artists__title">
+          <h1 className="title">Top Artists</h1>
+        </div>
+        <div className="artists__container">
+          {artists.map((artist) => (
+            <div
+              key={artist.id}
+              className="artist"
+              onClick={() =>
+                (window.location.href = artist.external_urls.spotify)
+              }
+            >
+              <img
+                src={artist.images[0]?.url}
+                alt={artist.name}
+                className="artists__img"
+              />
+              <div className="artists__name">{artist.name}</div>
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="artists__container">
-        {artists.map((artist) => (
-          <div
-            key={artist.id}
-            className="artist"
-            onClick={() =>
-              (window.location.href = artist.external_urls.spotify)
-            }
-          >
-            <img src={artist.images[0]?.url} alt={artist.name} className="artists__img" />
-            <div className="artists__name">{artist.name}</div>
-          </div>
-        ))}
-      </div>
-    </div>
     </div>
   );
 };

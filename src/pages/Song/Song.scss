@@ -3,13 +3,45 @@
 @use "../../styles/partials/mixins.scss" as *;
 @use "../../styles/partials/global.scss" as *;
 
-.song{
-    padding: 1rem;
-    @include tablet{
-        display: flex;
-        flex-direction: row;
-        align-items: baseline;
-        margin-left: 10rem;
-        padding: 2rem;
-    }
+.songs {
+  padding: 1rem;
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-left: 10rem;
+    padding: 2rem;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  &__name {
+    color: white;
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  &__img {
+    object-fit: cover;
+    width: 5.375rem;
+    height: 5.375rem;
+  }
+  &__artist{
+    color: white;
+
+  }
+  &__info{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .song {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
 }
