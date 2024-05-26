@@ -14,7 +14,6 @@ const Song = () => {
           withCredentials: true,
         });
         setSongs(response.data);
-        console.log(response.data);
       } catch (error) {
         console.error("Error fetching top songs:", error);
       }

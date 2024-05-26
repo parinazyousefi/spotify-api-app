@@ -4,6 +4,8 @@
 @use "../../styles/partials/global.scss" as *;
 
 .header {
+  background: transparent;
+
   &__title {
     text-decoration: none;
     display: flex;
@@ -14,9 +16,9 @@
   .logo {
     width: 10vw;
     height: 10vh;
+    background: transparent;
   }
   &--mobile {
-    animation: sectionAnimation 1s ease-in-out forwards;
     padding: 1rem;
     display: flex;
     flex-direction: row;
@@ -32,7 +34,6 @@
   &--desktop {
     display: none;
     @include tablet {
-      animation: sectionAnimation 1s ease-in-out forwards;
       padding: 2rem;
       display: flex;
       flex-direction: column;
@@ -41,6 +42,7 @@
       top: 0;
       left: 0;
       height: 100%;
+      background: transparent;
       .header {
         &__list {
           margin-top: 3rem;
@@ -49,6 +51,7 @@
           align-items: center;
           justify-content: space-between;
           gap: 5rem;
+          background: transparent;
         }
         &__item {
           color: white;
@@ -58,11 +61,9 @@
           gap: 3rem;
           justify-content: center;
           align-items: center;
-          &:hover {
-            cursor: pointer;
-            color: $Higlight;
-            transform: scale(1.25);
-          }
+          background: transparent;
+
+          
         }
       }
     }
@@ -74,4 +75,23 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  &:hover {
+    cursor: pointer;
+    color: $Higlight;
+    transform: scale(1.25);
+    animation: scaleUp 3s ease-in-out;
+  }
+
+}
+
+@keyframes scaleUp {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.25);
+  }
+  100% {
+      transform: scale(1);
+  }
 }

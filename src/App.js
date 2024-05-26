@@ -5,6 +5,7 @@ import Navbar from './pages/Navbar/Navbar';
 import Artist from './pages/Artist/Artist';
 import Song from './pages/Song/Song';
 import { BrowserRouter,Route,Routes } from 'react-router-dom';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path='/songs' element={<Song/>}/>
       </Routes>
       </BrowserRouter>
+      <Footer/>
 
       
     </div>

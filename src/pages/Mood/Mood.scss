@@ -2,44 +2,87 @@
 @use "../../styles/partials/fonts.scss" as *;
 @use "../../styles/partials/mixins.scss" as *;
 @use "../../styles/partials/global.scss" as *;
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+
+.mood {
+  &__container {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    background: transparent;
   }
-.mood{
-    @include tablet{
-        display: flex;
-        flex-direction: row;
-        align-items: baseline;
-    }
-   
-    &__content{
-        color: white;
-       
-    }
+  &__typed {
+    color: white;
+    font-weight: 700;
+    display: flex;
+    background: transparent;
+    font-size: large;
+  }
 
-    &__container{
-        display: inline-block;
-        padding: 1rem;
-        @include tablet{
-            padding: 2rem;
-            margin-left: 10rem;
-        }
-    }
-    &__typed {
-        overflow: hidden;
-        // white-space: nowrap;
-        // width: 0;
-        // animation: typing;
-        // animation-duration: 5s;
-        // animation-timing-function: steps(100, end);
-        // animation-fill-mode: forwards;
-        color: white;
-        font-weight: 700;
-      }
+  &__type {
+    display: flex;
+    font-weight: 700;
+    background: transparent;
+    font-size: large;
+  }
+}
+.title {
+  background: transparent;
+}
 
-      &__type{
-        display: flex;
-        justify-content: center;
-      }
+.recommendation {
+  padding: 1rem;
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-left: 10rem;
+    padding: 2rem;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    background: transparent;
+  }
+  &__name {
+    color: white;
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    background: transparent;
+  }
+  &__img {
+    object-fit: cover;
+    width: 5.375rem;
+    height: 5.375rem;
+    background: transparent;
+  }
+  &__artist {
+    color: white;
+    background: transparent;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background: transparent;
+  }
+  &__title {
+    background: transparent;
+  }
+  .song {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    background: transparent;
+    &:hover {
+      background-color: rgba(238, 130, 238, 0.3);
+    }
+  }
+}
+
+.holder {
+  background: transparent;
 }

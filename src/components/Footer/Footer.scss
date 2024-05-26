@@ -1,0 +1,11 @@
+@use "../../styles/partials/colors.scss" as *;
+@use "../../styles/partials/fonts.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
+@use "../../styles/partials/global.scss" as *;
+
+.footer{
+    text-align: center;
+    color: gray;
+    background-color: transparent;
+    margin:1rem;
+}

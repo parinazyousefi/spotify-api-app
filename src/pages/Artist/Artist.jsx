@@ -14,7 +14,6 @@ const Artist = () => {
           withCredentials: true,
         });
         setArtists(response.data);
-        console.log(response.data);
       } catch (error) {
         console.error("Error fetching top artists:", error);
       }
