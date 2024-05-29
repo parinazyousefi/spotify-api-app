@@ -3,7 +3,7 @@ const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const Login=()=>{
     const handleLogin=()=>{
-        window.location.href = `${backendUrl}/auth/spotify`;
+        window.location.href = `/auth/spotify`;
     }
     return(
         <div className='login'>
