@@ -3,7 +3,7 @@ import Header from "../../components/Header/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+// const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 // Define mood colors
 const moodColors = {
