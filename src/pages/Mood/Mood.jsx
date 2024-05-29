@@ -28,9 +28,9 @@ const Mood = () => {
     const fetchData = async () => {
       try {
         const [profileResponse, recentlyPlayedResponse, recommendationsResponse] = await Promise.all([
-          axios.get(`${backendUrl}profile`, { withCredentials: true }),
-          axios.get(`${backendUrl}recently-played`, { withCredentials: true }),
-          axios.get(`${backendUrl}recommendations`, { withCredentials: true }),
+          axios.get(`${backendUrl}/profile`, { withCredentials: true }),
+          axios.get(`${backendUrl}/recently-played`, { withCredentials: true }),
+          axios.get(`${backendUrl}/recommendations`, { withCredentials: true }),
         ]);
 
         setUserName(profileResponse.data.display_name);
