@@ -10,7 +10,9 @@ const Artist = () => {
   useEffect(() => {
     const getTopArtists = async () => {
       try {
-        const response = await axios.get(`${backendUrl}top-artists`);
+        const response = await axios.get(`${backendUrl}top-artists`, {
+          withCredentials: true,
+        });
         setArtists(response.data);
       } catch (error) {
         console.error("Error fetching top artists:", error);

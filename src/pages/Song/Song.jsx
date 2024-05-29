@@ -10,7 +10,9 @@ const Song = () => {
   useEffect(() => {
     const getTopSongs = async () => {
       try {
-        const response = await axios.get(`${backendUrl}top-songs`);
+        const response = await axios.get(`${backendUrl}top-songs`, {
+          withCredentials: true,
+        });
         setSongs(response.data);
       } catch (error) {
         console.error("Error fetching top songs:", error);
