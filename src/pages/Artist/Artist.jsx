@@ -2,7 +2,7 @@ import Header from "../../components/Header/Header";
 import "./Artist.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
-// const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const Artist = () => {
   const [artists, setArtists] = useState([]);
@@ -10,7 +10,7 @@ const Artist = () => {
   useEffect(() => {
     const getTopArtists = async () => {
       try {
-        const response = await axios.get(`/top-artists`, {
+        const response = await axios.get(`${backendUrl}/top-artists`, {
           withCredentials: true,
         });
         setArtists(response.data);

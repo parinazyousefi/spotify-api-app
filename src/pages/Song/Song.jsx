@@ -2,7 +2,7 @@ import Header from "../../components/Header/Header";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./Song.scss";
-// const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const Song = () => {
   const [songs, setSongs] = useState([]);
@@ -10,7 +10,7 @@ const Song = () => {
   useEffect(() => {
     const getTopSongs = async () => {
       try {
-        const response = await axios.get(`/top-songs`, {
+        const response = await axios.get(`${backendUrl}/top-songs`, {
           withCredentials: true,
         });
         setSongs(response.data);
