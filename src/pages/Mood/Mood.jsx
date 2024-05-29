@@ -20,27 +20,28 @@ const moodColors = {
 };
 
 const Mood = () => {
-  const [mood, setMood] = useState('');
   const [userName, setUserName] = useState('');
-  const [songs, setSongs] = useState([]);
+  const [mood, setMood] = useState('');
+  const [recentlyPlayedTracks, setRecentlyPlayedTracks] = useState([]);
+  const [recommendedTracks, setRecommendedTracks] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const headers = {
-          'Content-Type': 'application/json',
-        };
-
-        const [profileResponse, recentlyPlayedResponse, recommendationsResponse] = await Promise.all([
-          axios.get(`${backendUrl}/profile`, { withCredentials: true, headers }),
-          axios.get(`${backendUrl}/recently-played`, { withCredentials: true, headers }),
-          axios.get(`${backendUrl}/recommendations`, { withCredentials: true, headers }),
-        ]);
-
+        // Fetch user's profile
+        const profileResponse = await axios.get(`${backendUrl}/profile`, { withCredentials: true });
         setUserName(profileResponse.data.display_name);
-        setMood(recentlyPlayedResponse.data.mood);
-        setSongs(recommendationsResponse.data);
 
+        // Fetch user's recently played tracks
+        const recentlyPlayedResponse = await axios.get(`${backendUrl}/recently-played`, { withCredentials: true });
+        const tracks = recentlyPlayedResponse.data.tracks;
+        setRecentlyPlayedTracks(tracks);
+
+        // Fetch recommendations based on the mood
+        const recommendationsResponse = await axios.get(`${backendUrl}/recommendations`, { withCredentials: true });
+        const recommended = recommendationsResponse.data;
+        setMood(recommended.mood);
+        setRecommendedTracks(recommended.tracks);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -49,7 +50,7 @@ const Mood = () => {
     fetchData();
   }, []);
 
-  const moodColor = moodColors[mood] || "#FFFFFF"; // Default to white if mood is not in the mapping
+  const moodColor = moodColors[mood] || "#FFFFFF"; // Define moodColors object properly
 
   return (
     <div className="recommendation" style={{ backgroundImage: `linear-gradient(to right, #231F20 0%, ${moodColor} 97%)` }}>
@@ -62,22 +63,20 @@ const Mood = () => {
             <span className="mood__type" style={{ color: moodColor }}>{mood}</span>
           </div>
         </div>
-        <div className="recommendation__container">
-          {songs.map((song) => (
-            <div
-              key={song.id}
-              className="song"
-              onClick={() =>
-                (window.location.href = song.external_urls.spotify)
-              }
-            >
-              <img src={song.album.images?.[0]?.url} alt={song.name} className="songs__img" />
-              <div className="recommendation__info">
-                <div className="recommendation__name">{song.name}</div>
-                <div className="recommendation__artist">{song.artists?.[0]?.name}</div>
+        <div className="recommendation__container"> 
+          {/* Display recommended tracks */}
+          <div className="section">
+            <h2>Recommended Tracks</h2>
+            {recommendedTracks.map((track) => (
+              <div key={track.id} className="song" onClick={() => (window.location.href = track.external_urls.spotify)}>
+                <img src={track.album.images?.[0]?.url} alt={track.name} className="songs__img" />
+                <div className="recommendation__info">
+                  <div className="recommendation__name">{track.name}</div>
+                  <div className="recommendation__artist">{track.artists?.[0]?.name}</div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
