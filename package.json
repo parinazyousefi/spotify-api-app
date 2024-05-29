@@ -15,8 +15,7 @@
     "react-scripts": "5.0.1",
     "sass": "^1.72.0",
     "scss": "^0.2.4",
-    "web-vitals": "^2.1.4",
-    "proxy":"https://mood-sync-5b72599b5f67.herokuapp.com"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
