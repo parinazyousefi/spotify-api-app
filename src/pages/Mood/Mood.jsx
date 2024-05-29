@@ -27,10 +27,14 @@ const Mood = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const headers = {
+          'Content-Type': 'application/json',
+        };
+
         const [profileResponse, recentlyPlayedResponse, recommendationsResponse] = await Promise.all([
-          axios.get(`${backendUrl}/profile`, { withCredentials: true }),
-          axios.get(`${backendUrl}/recently-played`, { withCredentials: true }),
-          axios.get(`${backendUrl}/recommendations`, { withCredentials: true }),
+          axios.get(`${backendUrl}/profile`, { withCredentials: true, headers }),
+          axios.get(`${backendUrl}/recently-played`, { withCredentials: true, headers }),
+          axios.get(`${backendUrl}/recommendations`, { withCredentials: true, headers }),
         ]);
 
         setUserName(profileResponse.data.display_name);
@@ -44,9 +48,6 @@ const Mood = () => {
 
     fetchData();
   }, []);
-
- 
-  
 
   const moodColor = moodColors[mood] || "#FFFFFF"; // Default to white if mood is not in the mapping
 
