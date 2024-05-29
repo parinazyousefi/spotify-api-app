@@ -3,7 +3,7 @@ import Header from "../../components/Header/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-// const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 // Define mood colors
 const moodColors = {
@@ -28,9 +28,9 @@ const Mood = () => {
     const fetchData = async () => {
       try {
         const [profileResponse, recentlyPlayedResponse, recommendationsResponse] = await Promise.all([
-          axios.get(`/profile`, { withCredentials: true }),
-          axios.get(`/recently-played`, { withCredentials: true }),
-          axios.get(`/recommendations`, { withCredentials: true }),
+          axios.get(`${backendUrl}/profile`, { withCredentials: true }),
+          axios.get(`${backendUrl}/recently-played`, { withCredentials: true }),
+          axios.get(`${backendUrl}/recommendations`, { withCredentials: true }),
         ]);
 
         setUserName(profileResponse.data.display_name);
